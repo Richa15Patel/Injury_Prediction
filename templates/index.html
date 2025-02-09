@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injury Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-image: url("static/images/bgg.jpg");
+            /* background-image: url('https://source.unsplash.com/1920x1080/?pastel'); */
+            background-size: cover;
+            /* background-repeat: no-repeat; */
+            background-position: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: cornflowerblue;
+            /* background-color: #4CAF50; */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* transition: background-color 0.3s; */
+        }
+        input[type="submit"]:hover {
+            background-color: cornflowerblue;
+        }
+        .result {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .result img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Injury Prediction Form</h1>
+        <form action="/predict" method="post">
+            <label for="Player_Age">Player Age:</label>
+            <input type="text" name="Player_Age" id="Player_Age" placeholder="Enter player's age">
+
+            <label for="Player_Weight">Player Weight:</label>
+            <input type="text" name="Player_Weight" id="Player_Weight" placeholder="Enter player's weight">
+
+            <label for="Player_Height">Player Height:</label>
+            <input type="text" name="Player_Height" id="Player_Height" placeholder="Enter player's height">
+
+            <label for="Previous_Injuries">Previous Injuries:</label>
+            <input type="text" name="Previous_Injuries" id="Previous_Injuries" placeholder="Enter previous injuries">
+
+            <label for="Training_Intensity">Training Intensity:</label>
+            <input type="text" name="Training_Intensity" id="Training_Intensity" placeholder="Enter training intensity">
+
+            <label for="Recovery_Time">Recovery Time:</label>
+            <input type="text" name="Recovery_Time" id="Recovery_Time" placeholder="Enter recovery time">
+
+            <input type="submit" value="Predict">
+        </form>
+        <div class="result">
+            <p>{{ result_text }}</p>
+        </div>
+    </div>
+</body>
+</html>
